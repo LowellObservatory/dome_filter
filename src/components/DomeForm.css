@@ -1,0 +1,18 @@
+.domeform {
+    /* color: rgb(255, 255, 255); */
+    padding-bottom: 15px;
+    padding: 10px;
+    border: 2px solid rgb(209, 85, 85);
+}
+
+.domeform_text {
+    /* background-color: rgb(85, 126, 209); */
+    color: rgb(255, 255, 255);
+    margin-bottom: 3cm;
+    font-size: 18px;
+}
+
+.input-label {
+    background-color: rgb(85, 126, 209);
+    color: rgb(255, 255, 255);
+}

@@ -1,0 +1,33 @@
+:root {
+    --paragraph-text-color: rgb(243, 179, 77);
+}
+
+#foo {
+    color: var(--main-color);
+}
+
+.mainpage {
+    color: rgb(40, 21, 108);
+}
+
+.mainpage_text {
+    color: var(--paragraph-text-color);
+    /* height: 8000px; */
+    font-size: 18px;
+    /* margin: 10px; */
+    border: 2px solid rgb(209, 85, 85);
+    margin-left: 0;
+    padding: 10px;
+    padding-right: 30px;
+}
+
+
+
+.mainpage_rightcol {
+    /* background-image: url("../assets/images/black-sand.jpg"); */
+    color: var(--main-color);
+    background-color: rgb(105, 49, 95);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 150px;
+}
