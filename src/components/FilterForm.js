@@ -7,14 +7,14 @@ import {
     InputGroup
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './DomeForm.css';
+import './FilterForm.css';
 
-function DomeForm() {
+function FilterForm() {
 
     return (
 
-        <Form className="domeform">
-            <Form.Text className="domeform_text"> Dome </Form.Text>
+        <Form className="filterform">
+            <Form.Text className="filterform_text"> Filter </Form.Text>
             <p />
             <Row className="align-items-center">
                 <Col>
@@ -85,4 +85,4 @@ function DomeForm() {
     )
 }
 
-export default DomeForm;
+export default FilterForm;

@@ -22,7 +22,10 @@ function ICNavbar() {
                 />
             </Navbar.Brand>
             <Container className="justify-content-center">
-                <Navbar.Text><strong><font size="+2"> J1M Dome & Filter Control </font></strong></Navbar.Text>
+                <Navbar.Text><strong><font size="+2">
+                    J1M Dome and Filter Control
+                    </font></strong>
+                </Navbar.Text>
             </Container>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 

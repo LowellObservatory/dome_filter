@@ -4,8 +4,8 @@ import ICNavbar from "./ICNavbar";
 // import InstForm from "./InstForm";
 // import WeatherForm from "./WeatherForm";
 // import TimeForm from "./TimeForm";
-// import StatusForm from "./StatusForm";
-// import hand from "../assets/images/Daco_224512.png";
+import DomeForm from "./DomeForm";
+import FilterForm from "./FilterForm";
 import {
     Container,
     Row,
@@ -21,8 +21,16 @@ function MainPage() {
     return (
 
         // <Container fluid className="mainpage-container">
-        <Container style={{ width: "98%", height: "100%" }}>
+        <Container className="mainPage">
             <ICNavbar />
+            <Row style={{ marginLeft: 0, marginRight: 0 }} >
+                <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
+                    <DomeForm/>
+                </Col>
+                <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
+                    <FilterForm/>
+                </Col>
+            </Row>
         </Container >
     )
 }

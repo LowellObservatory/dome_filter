@@ -10,6 +10,15 @@
     color: rgb(40, 21, 108);
 }
 
+.mainPage {
+    /* color: rgb(255, 255, 255); */
+    /* padding-bottom: 15px; */
+    padding: 10px;
+    /* border: 2px solid rgb(209, 85, 85); */
+    background-color: rgb(40, 21, 108);
+    color: rgb(40, 21, 108);
+}
+
 .mainpage_text {
     color: var(--paragraph-text-color);
     /* height: 8000px; */
