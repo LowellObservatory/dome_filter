@@ -4,7 +4,9 @@ import {
     Row,
     Col,
     FormControl,
-    InputGroup
+    InputGroup,
+    Button,
+    ButtonGroup
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './FilterForm.css';
@@ -18,25 +20,41 @@ function FilterForm() {
             <p />
             <Row className="align-items-center">
                 <Col>
-                    <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
-                        Primary Observer
-                    </Form.Label>
-                    <InputGroup size="sm" className="mb-2">
-                        <InputGroup.Text className="input-label">* Primary Observer</InputGroup.Text>
-                        <FormControl id="inlineFormInputGroup" placeholder="Primary Observer" />
-                    </InputGroup>
+                    <Row>
+                        <Button>Button</Button>
+                    </Row>
+                    <Row>
+                        <ButtonGroup vertical>
+                            <Button>R</Button>
+                            <Button>G</Button>
+                            <Button>B</Button>
+                            <Button>I</Button>
+                        </ButtonGroup>
+                    </Row>
                 </Col>
                 <Col>
-                    <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
+                    <Row>
+                        <Button>Button</Button>
+                    </Row>
+                    <Row>
+                        <Button>Button</Button>
+                    </Row>
+                    <Row>
+                        <Button>Button</Button>
+                    </Row>
+                    <Row>
+                        <Button>Button</Button>
+                    </Row>
+                    {/* <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
                         Observer's Email Address
                     </Form.Label>
                     <InputGroup size="sm" className="mb-2">
                         <InputGroup.Text className="input-label">* Observer's Email</InputGroup.Text>
                         <FormControl id="inlineFormInputGroup" placeholder="Observer's Email Address" />
-                    </InputGroup>
+                    </InputGroup> */}
                 </Col>
             </Row>
-            <Row className="align-items-center">
+            {/* <Row className="align-items-center">
                 <Col xs="auto">
                     <Form.Text className="peopleform_text">Observer's Location</Form.Text>
                 </Col>
@@ -68,9 +86,9 @@ function FilterForm() {
                         <FormControl id="inlineFormInputGroup" placeholder="if remote, please specify location" />
                     </InputGroup>
                 </Col>
-            </Row>
+            </Row> */}
             <p />
-            <Row className="align-items-center">
+            {/* <Row className="align-items-center">
                 <Col>
                     <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
                         Other Participants
@@ -80,7 +98,7 @@ function FilterForm() {
                         <FormControl id="inlineFormInputGroup" placeholder="List others participating in the observation" />
                     </InputGroup>
                 </Col>
-            </Row>
+            </Row> */}
         </Form>
     )
 }
