@@ -23,12 +23,14 @@ function MainPage() {
         // <Container fluid className="mainpage-container">
         <Container className="mainPage">
             <ICNavbar />
+            <p />
+            <p />
             <Row style={{ marginLeft: 0, marginRight: 0 }} >
                 <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
-                    <DomeForm/>
+                    <DomeForm />
                 </Col>
                 <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
-                    <FilterForm/>
+                    <FilterForm />
                 </Col>
             </Row>
         </Container >

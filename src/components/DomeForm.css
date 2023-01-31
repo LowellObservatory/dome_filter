@@ -3,13 +3,13 @@
     padding-bottom: 15px;
     padding: 10px;
     border: 2px solid rgb(209, 85, 85);
-    background-color: rgb(40, 21, 108);
+    background-color: rgb(207, 253, 255);
     color: rgb(40, 21, 108);
+    height: 500px;
 }
 
 .domeform_text {
-    /* background-color: rgb(85, 126, 209); */
-    color: rgb(255, 255, 255);
+    color: rgb(209, 85, 85);
     margin-bottom: 3cm;
     font-size: 18px;
 }
