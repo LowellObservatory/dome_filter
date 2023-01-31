@@ -9,12 +9,11 @@
 }
 
 .domeform_text {
-    color: rgb(209, 85, 85);
-    margin-bottom: 3cm;
-    font-size: 18px;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
 }
 
-.input-label {
-    background-color: rgb(85, 126, 209);
-    color: rgb(255, 255, 255);
+.statlab {
+    padding: 5px;
+    border: 2px solid rgb(209, 85, 85);
 }

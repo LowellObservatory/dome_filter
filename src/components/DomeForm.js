@@ -46,30 +46,34 @@ function DomeForm() {
 
                 </Col>
                 <Col style={{ border: 2 }} className="buttoncolumn2" lg={{ span: 2, offset: 2 }}>
-                    <Row>
-                        <Badge bg="dark">disconnected</Badge>
+                    <Row className="statlab">
+                        <div className="connection">
+                            State: Unconnected
+                        </div>
                     </Row>
                     <p />
-                    <Row>
-                        <Form.Text className="filterform_text2">
-                            Rotation
-                        </Form.Text>
-                        <Badge bg="dark">settled</Badge>
-                    </Row>
-                    <Row>
-                        <Form.Text className="filterform_text2">
-                            Azimuth
-                        </Form.Text>
-                    </Row>
-                    <Row>
-                        <Badge bg="dark">127</Badge>
+                    <Row className="statlab">
+                        <div className="home">
+                            Home: true
+                        </div>
                     </Row>
                     <p />
-                    <Row>
-                        <Form.Text className="filterform_text2">
-                            Shutter
-                        </Form.Text>
-                        <Badge bg="dark">closed</Badge>
+                    <Row className="statlab">
+                        <div className="shutter">
+                            Shutter: closed
+                        </div>
+                    </Row>
+                    <p />
+                    <Row className="statlab">
+                        <div className="rotation">
+                            Rotation: settled
+                        </div>
+                    </Row>
+                    <p />
+                    <Row className="statlab">
+                        <div className="azimuth">
+                            Azimuth: 127
+                        </div>
                     </Row>
                 </Col>
             </Row>
