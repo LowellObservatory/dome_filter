@@ -43,6 +43,10 @@ function DomeForm() {
                         <Button size="sm">Unfollow</Button>
                     </Row>
                     <p />
+                    <p />
+                    <Badge bg="success" size="sm">Connect Error</Badge>
+                    <Badge bg="success" size="sm">Read Error</Badge>
+                    <Badge bg="success" size="sm">Shutter Error</Badge>
 
                 </Col>
                 <Col style={{ border: 2 }} className="buttoncolumn2" lg={{ span: 2, offset: 2 }}>

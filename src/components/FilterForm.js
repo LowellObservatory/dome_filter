@@ -28,7 +28,7 @@ function FilterForm() {
                         <Button size="sm">Home</Button>
                     </Row>
                     <p />
-                    <Row>
+                    {/* <Row> */}
                         <ButtonGroup vertical>
                             <Button variant="outline-primary" size="sm">V</Button>
                             <Button variant="outline-primary" size="sm">R</Button>
@@ -40,7 +40,7 @@ function FilterForm() {
                             <Button variant="outline-primary" size="sm">CN</Button>
                             <Button variant="outline-primary" size="sm">OH</Button>
                         </ButtonGroup>
-                    </Row>
+                    {/* </Row> */}
                 </Col>
                 <Col style={{ border: 2 }} className="buttoncolumn2" lg={{ span: 2, offset: 2 }}>
 
@@ -67,6 +67,9 @@ function FilterForm() {
                             Moving: False
                         </div>
                     </Row>
+                    <p />
+                    <Badge bg="success" size="sm">Connect Error</Badge>
+                    <Badge bg="success" size="sm">Wheel Error</Badge>
                 </Col>
             </Row>
         </Form >
