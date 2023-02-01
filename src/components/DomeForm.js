@@ -48,13 +48,13 @@ function DomeForm() {
                 <Col style={{ border: 2 }} className="buttoncolumn2" lg={{ span: 2, offset: 2 }}>
                     <Row className="statlab">
                         <div className="connection">
-                            State: Unconnected
+                            State: Disconnected
                         </div>
                     </Row>
                     <p />
                     <Row className="statlab">
                         <div className="home">
-                            Home: true
+                            Home: Unknown
                         </div>
                     </Row>
                     <p />
@@ -73,6 +73,12 @@ function DomeForm() {
                     <Row className="statlab">
                         <div className="azimuth">
                             Azimuth: 127
+                        </div>
+                    </Row>
+                    <p />
+                    <Row className="statlab">
+                        <div className="follow">
+                            Following: false
                         </div>
                     </Row>
                 </Col>

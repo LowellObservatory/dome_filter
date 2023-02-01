@@ -10,14 +10,12 @@
 }
 
 .filterform_text {
-    /* background-color: rgb(85, 126, 209); */
-    color: rgb(209, 85, 85);
-    margin-bottom: 3cm;
+    color: rgb(0, 0, 0);
     font-size: 18px;
 }
 
 .filterform_text2 {
-    color: rgb(209, 85, 85);
+    color: rgb(0, 0, 0);
     font-size: 14px;
 }
 
@@ -33,4 +31,9 @@
 .buttoncolumn2 {
     border: 2px solid rgb(209, 85, 85);
     width: 35%;
+}
+
+.statlab {
+    padding: 5px;
+    border: 2px solid rgb(209, 85, 85);
 }

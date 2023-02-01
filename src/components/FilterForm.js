@@ -44,21 +44,28 @@ function FilterForm() {
                 </Col>
                 <Col style={{ border: 2 }} className="buttoncolumn2" lg={{ span: 2, offset: 2 }}>
 
-                    <Row>
-                        <Badge bg="dark">disconnected</Badge>
+                    <Row className="statlab">
+                        <div className="connection">
+                            State: Disconnected
+                        </div>
                     </Row>
                     <p />
-                    <Row>
-                        <Badge bg="dark">settled</Badge>
+                    <Row className="statlab">
+                        <div className="home">
+                            Home: unknown
+                        </div>
                     </Row>
                     <p />
-                    <Row>
-                        <Form.Text className="filterform_text2">
-                            Current Filter
-                        </Form.Text>
+                    <Row className="statlab">
+                        <div className="filter">
+                            Current Filter: Home/Clr
+                        </div>
                     </Row>
-                    <Row>
-                        <Badge bg="dark">R</Badge>
+                    <p />
+                    <Row className="statlab">
+                        <div className="moving">
+                            Moving: False
+                        </div>
                     </Row>
                 </Col>
             </Row>
