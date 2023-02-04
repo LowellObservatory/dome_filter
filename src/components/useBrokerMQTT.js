@@ -4,6 +4,7 @@ import mqtt from "mqtt";
 function useBrokerMQTT() {
 
     const [client, setClient] = useState(null);
+    const [message, setMessage] = useState(null);
 
     function handleConnect() {
         const url = "ws://tanagra.lowell.edu:61614/mqtt";
@@ -54,6 +55,7 @@ function useBrokerMQTT() {
                 var parser = new DOMParser();
                 var doc = parser.parseFromString(changed, 'text/xml');
                 console.log((new XMLSerializer()).serializeToString(doc));
+                setMessage(doc);
 
             });
 
@@ -71,7 +73,7 @@ function useBrokerMQTT() {
     };
 
     return {
-        client,
+        message,
         handleConnect,
         handlePublish,
       };
