@@ -9,8 +9,12 @@ import {
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './FilterForm.css';
+import filterData from "./filters.json";
+
+// const [filterData, setFilterData] = React.useState(filterData);
 
 function FilterForm() {
+    // const [filterData, setFilterData] = React.useState({ filterData });
 
     return (
 
@@ -29,17 +33,11 @@ function FilterForm() {
                     </Row>
                     <p />
                     {/* <Row> */}
-                        <ButtonGroup vertical>
-                            <Button variant="outline-primary" size="sm">V</Button>
-                            <Button variant="outline-primary" size="sm">R</Button>
-                            <Button variant="outline-primary" size="sm">B</Button>
-                            <Button variant="outline-primary" size="sm">U</Button>
-                            <Button variant="outline-primary" size="sm">I</Button>
-                            <Button variant="outline-primary" size="sm">Slone-z</Button>
-                            <Button variant="outline-primary" size="sm">Yish</Button>
-                            <Button variant="outline-primary" size="sm">CN</Button>
-                            <Button variant="outline-primary" size="sm">OH</Button>
-                        </ButtonGroup>
+                    <ButtonGroup vertical>
+                        {filterData && filterData.map(({ SLOT, FILTER }) => (
+                            <Button variant="outline-primary" size="sm">{FILTER}</Button>
+                        ))}
+                    </ButtonGroup>
                     {/* </Row> */}
                 </Col>
                 <Col style={{ border: 2 }} className="buttoncolumn2" lg={{ span: 2, offset: 2 }}>

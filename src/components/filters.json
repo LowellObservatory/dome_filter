@@ -1,0 +1,42 @@
+[
+    {
+        "SLOT": 1,
+        "FILTER": "CLR"
+    },
+    {
+        "SLOT": 2,
+        "FILTER": "V"
+    },
+    {
+        "SLOT": 3,
+        "FILTER": "R"
+    },
+    {
+        "SLOT": 4,
+        "FILTER": "B"
+    },
+    {
+        "SLOT": 5,
+        "FILTER": "U"
+    },
+    {
+        "SLOT": 6,
+        "FILTER": "I"
+    },
+    {
+        "SLOT": 7,
+        "FILTER": "Slone-z"
+    },
+    {
+        "SLOT": 8,
+        "FILTER": "Yish"
+    },
+    {
+        "SLOT": 9,
+        "FILTER": "CN"
+    },
+    {
+        "SLOT": 10,
+        "FILTER": "OH"
+    }
+]
