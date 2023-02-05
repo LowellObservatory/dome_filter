@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, setState } from 'react';
 import mqtt from "mqtt";
 
 function useBrokerMQTT() {
@@ -8,7 +8,7 @@ function useBrokerMQTT() {
 
     function handleConnect() {
         const url = "ws://tanagra.lowell.edu:61614/mqtt";
-        console.log(url);
+        // console.log(url);
         const options = {
             keepalive: 30,
             protocolId: "MQTT",
@@ -32,37 +32,62 @@ function useBrokerMQTT() {
     }
 
     function doConnect(host, mqttOptions) {
-        console.log(host);
-        setClient(mqtt.connect(host, mqttOptions));
-        console.log(client);
-        if (client) {
-            console.log(client);
-        }
+        // console.log(host);
+        var c = mqtt.connect(host, mqttOptions);
+        var parser = new DOMParser();
+        setClient(c);
 
-        if (client) {
-            client.on("connect", () => {
+        if (c) {
+            console.log("setting up onmessage");
+            c.on("connect", () => {
                 console.log("Connected");
-                console.log(client);
+                console.log(c);
             });
-            client.on("error", (err) => {
+            c.on("error", (err) => {
                 console.error("Connection error: ", err);
-                client.end();
+                c.end();
             });
-            client.on("message", (topic, message) => {
+            c.on("message", (topic, message) => {
                 const payload = { topic, message: message.toString() };
                 const changed = message.toString();
-
-                var parser = new DOMParser();
+                // console.log("got a message");
+                
                 var doc = parser.parseFromString(changed, 'text/xml');
-                console.log((new XMLSerializer()).serializeToString(doc));
+                // console.log((new XMLSerializer()).serializeToString(doc));
                 setMessage(doc);
 
             });
+        }
 
+    };
+
+    function handleSubscribe(topic, qos) {
+        console.log("subscribing to: ");
+        console.log(topic);
+        if (client) {
+            client.subscribe(topic, 0, (error) => {
+                if (error) {
+                    console.log("Subscribe to topics error", error);
+                    return;
+                }
+            });
+        }
+        
+    }
+
+    function handleUnsub(topic, qos) {
+        if (client) {
+            client.unsubscribe(topic, (error) => {
+                if (error) {
+                    console.log("Unsubscribe error", error);
+                    return;
+                }
+            });
         }
     };
 
     function handlePublish(topic, qos, payload) {
+        // console.log(client);
         if (client) {
             client.publish(topic, payload, { qos }, (error) => {
                 if (error) {
@@ -72,11 +97,23 @@ function useBrokerMQTT() {
         }
     };
 
+    function handleDisconnect() {
+        if (client) {
+            client.end(() => {
+
+            });
+        }
+    };
+
     return {
+        client,
         message,
         handleConnect,
         handlePublish,
-      };
+        handleSubscribe,
+        handleUnsub,
+        handleDisconnect
+    };
 }
 
 export default useBrokerMQTT;

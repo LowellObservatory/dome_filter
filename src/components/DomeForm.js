@@ -16,30 +16,58 @@ function DomeForm() {
 
     const [Connected, setConnected] = useState(false);
     const {
+        client,
         message,
         handleConnect,
         handlePublish,
-      } = useBrokerMQTT();
+        handleSubscribe,
+        handleUnsub,
+        handleDisconnect
+    } = useBrokerMQTT();
 
     useEffect(() => {
         handleConnect();
+        setTimeout(function () {
+            handleSubscribe("lorax/j1m/dome/broadcast", 0);
+        }, 1000);
     }, []);
 
     useEffect(() => {
-        // Use "message" to update status fields.
+        if(message) {
+        console.log("the message");
+        // console.log(message);
+        outtext = "";
+        var timeut, outtext;
+        timeut = message.getElementsByTagName("timestamput");
+        var connected = message.getElementsByTagName("connected");
+        var azimuth = message.getElementsByTagName("azimuth");
+        var shutter_open = message.getElementsByTagName("shutter_open");
+        var track_mount = message.getElementsByTagName("track_mount");
+        
+        outtext = "timestamput: " + timeut[0].childNodes[0].nodeValue;
+        outtext = outtext + "\nconnected: " + connected[0].childNodes[0].nodeValue;
+        outtext = outtext + "\nazimuth: " + azimuth[0].childNodes[0].nodeValue;
+        outtext = outtext + "\nshutter_open: " + shutter_open[0].childNodes[0].nodeValue;
+        outtext = outtext + "\ntrack_mount: " + track_mount[0].childNodes[0].nodeValue;
+        console.log(outtext);
+        }
     });
 
 
-    
+
     function toggleConnected(e) {
         if (Connected) {
             setConnected(false);
+            handleUnsub("lorax/j1m/dome/broadcast", 0);
             handlePublish("testDome", 0, "<value>disconnected</value>");
+            handlePublish("lorax/j1m/command/dome", 0, "disconnect");
             document.getElementById("connection").innerHTML = "State: Disconnected";
 
         } else {
             setConnected(true);
+            handleSubscribe("lorax/j1m/dome/broadcast", 0);
             handlePublish("testDome", 0, "<value>connected</value>");
+            handlePublish("lorax/j1m/command/dome", 0, "init");
             document.getElementById("connection").innerHTML = "State: Connected";
         }
         console.log(Connected);
