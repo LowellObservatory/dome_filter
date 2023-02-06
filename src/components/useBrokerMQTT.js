@@ -1,4 +1,4 @@
-import { useState, setState } from 'react';
+import { useState } from 'react';
 import mqtt from "mqtt";
 
 function useBrokerMQTT() {
@@ -46,7 +46,7 @@ function useBrokerMQTT() {
                 c.end();
             });
             c.on("message", (topic, message) => {
-                const payload = { topic, message: message.toString() };
+                // const payload = { topic, message: message.toString() };
                 const changed = message.toString();
                 // console.log("got a message");
 

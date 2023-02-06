@@ -6,7 +6,7 @@ import {
     Button,
     Badge
 } from 'react-bootstrap';
-import mqtt from "mqtt";
+// import mqtt from "mqtt";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './DomeForm.css';
 import useBrokerMQTT from "./useBrokerMQTT";
@@ -21,8 +21,8 @@ function DomeForm() {
         handleConnect,
         handlePublish,
         handleSubscribe,
-        handleUnsub,
-        handleDisconnect
+        // handleUnsub,
+        // handleDisconnect
     } = useBrokerMQTT();
 
     useEffect(() => {
@@ -37,13 +37,13 @@ function DomeForm() {
         if (message) {
             // console.log("the message");
             // console.log(message);
-            outtext = "";
-            var timeut, outtext;
-            timeut = message.getElementsByTagName("timestamput");
+            // var outtext = "";
+            // var timeut;
+            // timeut = message.getElementsByTagName("timestamput");
             var connected = message.getElementsByTagName("connected");
-            var azimuth = message.getElementsByTagName("azimuth");
+            // var azimuth = message.getElementsByTagName("azimuth");
             var shutter_open = message.getElementsByTagName("shutter_open");
-            var track_mount = message.getElementsByTagName("track_mount");
+            // var track_mount = message.getElementsByTagName("track_mount");
             // console.log(connected[0].childNodes[0].nodeValue)
 
             if (connected[0].childNodes[0].nodeValue === "True") {
@@ -61,11 +61,11 @@ function DomeForm() {
                 // console.log("setting closed");
                 document.getElementById("shutter").innerHTML = "Shutter: closed";
             }
-            outtext = "timestamput: " + timeut[0].childNodes[0].nodeValue;
-            outtext = outtext + "\nconnected: " + connected[0].childNodes[0].nodeValue;
-            outtext = outtext + "\nazimuth: " + azimuth[0].childNodes[0].nodeValue;
-            outtext = outtext + "\nshutter_open: " + shutter_open[0].childNodes[0].nodeValue;
-            outtext = outtext + "\ntrack_mount: " + track_mount[0].childNodes[0].nodeValue;
+            // outtext = "timestamput: " + timeut[0].childNodes[0].nodeValue;
+            // outtext = outtext + "\nconnected: " + connected[0].childNodes[0].nodeValue;
+            // outtext = outtext + "\nazimuth: " + azimuth[0].childNodes[0].nodeValue;
+            // outtext = outtext + "\nshutter_open: " + shutter_open[0].childNodes[0].nodeValue;
+            // outtext = outtext + "\ntrack_mount: " + track_mount[0].childNodes[0].nodeValue;
             // console.log(outtext);
         }
     });
