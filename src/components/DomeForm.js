@@ -27,50 +27,80 @@ function DomeForm() {
 
     useEffect(() => {
         handleConnect();
-        setTimeout(function () {
-            handleSubscribe("lorax/j1m/dome/broadcast", 0);
-        }, 1000);
     }, []);
 
     useEffect(() => {
-        if(message) {
-        console.log("the message");
-        // console.log(message);
-        outtext = "";
-        var timeut, outtext;
-        timeut = message.getElementsByTagName("timestamput");
-        var connected = message.getElementsByTagName("connected");
-        var azimuth = message.getElementsByTagName("azimuth");
-        var shutter_open = message.getElementsByTagName("shutter_open");
-        var track_mount = message.getElementsByTagName("track_mount");
-        
-        outtext = "timestamput: " + timeut[0].childNodes[0].nodeValue;
-        outtext = outtext + "\nconnected: " + connected[0].childNodes[0].nodeValue;
-        outtext = outtext + "\nazimuth: " + azimuth[0].childNodes[0].nodeValue;
-        outtext = outtext + "\nshutter_open: " + shutter_open[0].childNodes[0].nodeValue;
-        outtext = outtext + "\ntrack_mount: " + track_mount[0].childNodes[0].nodeValue;
-        console.log(outtext);
+        handleSubscribe("lorax/j1m/dome/broadcast", 0);
+    }, [client]);
+
+    useEffect(() => {
+        if (message) {
+            // console.log("the message");
+            // console.log(message);
+            outtext = "";
+            var timeut, outtext;
+            timeut = message.getElementsByTagName("timestamput");
+            var connected = message.getElementsByTagName("connected");
+            var azimuth = message.getElementsByTagName("azimuth");
+            var shutter_open = message.getElementsByTagName("shutter_open");
+            var track_mount = message.getElementsByTagName("track_mount");
+            // console.log(connected[0].childNodes[0].nodeValue)
+
+            if (connected[0].childNodes[0].nodeValue === "True") {
+                // console.log("setting connected");
+                document.getElementById("connection").innerHTML = "State: Connected";
+            } else {
+                // console.log("setting disconnected");
+                document.getElementById("connection").innerHTML = "State: Disconnected";
+            }
+
+            if (shutter_open[0].childNodes[0].nodeValue === "True") {
+                // console.log("setting open");
+                document.getElementById("shutter").innerHTML = "Shutter: open";
+            } else {
+                // console.log("setting closed");
+                document.getElementById("shutter").innerHTML = "Shutter: closed";
+            }
+            outtext = "timestamput: " + timeut[0].childNodes[0].nodeValue;
+            outtext = outtext + "\nconnected: " + connected[0].childNodes[0].nodeValue;
+            outtext = outtext + "\nazimuth: " + azimuth[0].childNodes[0].nodeValue;
+            outtext = outtext + "\nshutter_open: " + shutter_open[0].childNodes[0].nodeValue;
+            outtext = outtext + "\ntrack_mount: " + track_mount[0].childNodes[0].nodeValue;
+            // console.log(outtext);
         }
     });
 
+    function doOpen() {
+        handlePublish("lorax/j1m/command/dome", 0, "open_shutter");
+    }
+    function doClose() {
+        handlePublish("lorax/j1m/command/dome", 0, "close_shutter");
+    }
 
+    function doFollow() {
+        handlePublish("lorax/j1m/command/dome", 0, "track_mount");
+    }
+
+    function doUnfollow() {
+        handlePublish("lorax/j1m/command/dome", 0, "stop_tracking");
+    }
 
     function toggleConnected(e) {
         if (Connected) {
             setConnected(false);
-            handleUnsub("lorax/j1m/dome/broadcast", 0);
-            handlePublish("testDome", 0, "<value>disconnected</value>");
+            // handleUnsub("lorax/j1m/dome/broadcast", 0);
+            // handlePublish("testDome", 0, "<value>disconnected</value>");
             handlePublish("lorax/j1m/command/dome", 0, "disconnect");
-            document.getElementById("connection").innerHTML = "State: Disconnected";
+            // document.getElementById("connection").innerHTML = "State: Disconnected";
 
         } else {
             setConnected(true);
-            handleSubscribe("lorax/j1m/dome/broadcast", 0);
-            handlePublish("testDome", 0, "<value>connected</value>");
+            // handleSubscribe("lorax/j1m/dome/broadcast", 0);
+            // handlePublish("testDome", 0, "<value>connected</value>");
             handlePublish("lorax/j1m/command/dome", 0, "init");
-            document.getElementById("connection").innerHTML = "State: Connected";
+            // document.getElementById("connection").innerHTML = "State: Connected";
         }
-        console.log(Connected);
+        // console.log(Connected);
     }
 
     return (
@@ -90,19 +120,19 @@ function DomeForm() {
                     </Row>
                     <p />
                     <Row>
-                        <Button size="sm">Open</Button>
+                        <Button onClick={doOpen} size="sm">Open</Button>
                     </Row>
                     <p />
                     <Row>
-                        <Button size="sm">Close</Button>
+                        <Button onClick={doClose} size="sm">Close</Button>
                     </Row>
                     <p />
                     <Row>
-                        <Button size="sm">Follow</Button>
+                        <Button onClick={doFollow} size="sm">Follow</Button>
                     </Row>
                     <p />
                     <Row>
-                        <Button size="sm">Unfollow</Button>
+                        <Button onClick={doUnfollow} size="sm">Unfollow</Button>
                     </Row>
                     <p />
                     <p />
@@ -125,7 +155,7 @@ function DomeForm() {
                     </Row>
                     <p />
                     <Row className="statlab">
-                        <div className="shutter">
+                        <div className="shutter" id="shutter">
                             Shutter: closed
                         </div>
                     </Row>

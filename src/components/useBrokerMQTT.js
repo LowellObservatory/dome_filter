@@ -32,10 +32,8 @@ function useBrokerMQTT() {
     }
 
     function doConnect(host, mqttOptions) {
-        // console.log(host);
         var c = mqtt.connect(host, mqttOptions);
         var parser = new DOMParser();
-        setClient(c);
 
         if (c) {
             console.log("setting up onmessage");
@@ -51,14 +49,13 @@ function useBrokerMQTT() {
                 const payload = { topic, message: message.toString() };
                 const changed = message.toString();
                 // console.log("got a message");
-                
+
                 var doc = parser.parseFromString(changed, 'text/xml');
                 // console.log((new XMLSerializer()).serializeToString(doc));
                 setMessage(doc);
-
             });
         }
-
+        setClient(c);
     };
 
     function handleSubscribe(topic, qos) {
@@ -72,7 +69,7 @@ function useBrokerMQTT() {
                 }
             });
         }
-        
+
     }
 
     function handleUnsub(topic, qos) {
