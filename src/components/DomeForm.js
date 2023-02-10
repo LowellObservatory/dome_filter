@@ -4,6 +4,8 @@ import {
     Row,
     Col,
     Button,
+    InputGroup,
+    FormControl,
     Badge
 } from 'react-bootstrap';
 // import mqtt from "mqtt";
@@ -14,6 +16,7 @@ import useBrokerMQTT from "./useBrokerMQTT";
 
 function DomeForm() {
 
+    const [azVal, setAzVal] = useState(0);
     const [Connected, setConnected] = useState(false);
     const {
         client,
@@ -41,9 +44,9 @@ function DomeForm() {
             // var timeut;
             // timeut = message.getElementsByTagName("timestamput");
             var connected = message.getElementsByTagName("connected");
-            // var azimuth = message.getElementsByTagName("azimuth");
+            var azimuth = message.getElementsByTagName("azimuth");
             var shutter_open = message.getElementsByTagName("shutter_open");
-            // var track_mount = message.getElementsByTagName("track_mount");
+            var track_mount = message.getElementsByTagName("track_mount");
             // console.log(connected[0].childNodes[0].nodeValue)
 
             if (connected[0].childNodes[0].nodeValue === "True") {
@@ -61,6 +64,16 @@ function DomeForm() {
                 // console.log("setting closed");
                 document.getElementById("shutter").innerHTML = "Shutter: closed";
             }
+
+            if (track_mount[0].childNodes[0].nodeValue === "True") {
+                // console.log("setting open");
+                document.getElementById("follow").innerHTML = "Following: true";
+            } else {
+                // console.log("setting closed");
+                document.getElementById("follow").innerHTML = "Following: false";
+            }
+
+            document.getElementById("azimuth").innerHTML = "azimuth: " + azimuth[0].childNodes[0].nodeValue;
             // outtext = "timestamput: " + timeut[0].childNodes[0].nodeValue;
             // outtext = outtext + "\nconnected: " + connected[0].childNodes[0].nodeValue;
             // outtext = outtext + "\nazimuth: " + azimuth[0].childNodes[0].nodeValue;
@@ -103,9 +116,14 @@ function DomeForm() {
         // console.log(Connected);
     }
 
+    function sendAz(event) {
+        console.log("setaz(" + azVal + ")");
+        handlePublish("lorax/j1m/command/dome", 0, "setaz(" + azVal + ")");
+    }
+
     return (
 
-        <Form className="domeform">
+        <Form className="domeform" onSubmit={sendAz}>
             <Form.Text className="domeform_text"> Dome Control </Form.Text>
             <p />
             <p />
@@ -133,6 +151,31 @@ function DomeForm() {
                     <p />
                     <Row>
                         <Button onClick={doUnfollow} size="sm">Unfollow</Button>
+                    </Row>
+                    <p />
+                    <Row className="align-items-center">
+                        <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
+                            Enter Azimuth:
+                        </Form.Label>
+                        <InputGroup size="sm" className="mb-2">
+                            <InputGroup.Text className="input-label">Enter Az:</InputGroup.Text>
+                            <Form.Control
+                                type="text"
+                                // onChange={sendAz.bind(this)} 
+                                size="sm"
+                                id="inlineFormInputGroup"
+                                value={azVal}
+                                onChange={(event) => { setAzVal(event.target.value) }}
+                                placeholder="0" />
+                            <Button
+                                className="btnFormSend"
+                                variant="outline-success"
+                                onClick={sendAz}
+                            >
+                                Send
+                            </Button>
+
+                        </InputGroup>
                     </Row>
                     <p />
                     <p />
@@ -167,13 +210,13 @@ function DomeForm() {
                     </Row>
                     <p />
                     <Row className="statlab">
-                        <div className="azimuth">
+                        <div className="azimuth" id="azimuth">
                             Azimuth: 127
                         </div>
                     </Row>
                     <p />
                     <Row className="statlab">
-                        <div className="follow">
+                        <div className="follow" id="follow">
                             Following: false
                         </div>
                     </Row>

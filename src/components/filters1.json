@@ -1,0 +1,42 @@
+[
+    {
+        "SLOT": 1,
+        "FILTER": "OPEN"
+    },
+    {
+        "SLOT": 2,
+        "FILTER": "SL-u"
+    },
+    {
+        "SLOT": 3,
+        "FILTER": "SL-g"
+    },
+    {
+        "SLOT": 4,
+        "FILTER": "SL-r"
+    },
+    {
+        "SLOT": 5,
+        "FILTER": "SL-i"
+    },
+    {
+        "SLOT": 6,
+        "FILTER": "SL-z"
+    },
+    {
+        "SLOT": 7,
+        "FILTER": "CN"
+    },
+    {
+        "SLOT": 8,
+        "FILTER": "RC"
+    },
+    {
+        "SLOT": 9,
+        "FILTER": "VR"
+    },
+    {
+        "SLOT": 10,
+        "FILTER": "C2"
+    }
+]

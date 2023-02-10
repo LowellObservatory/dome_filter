@@ -9,7 +9,8 @@ import {
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './FilterForm.css';
-import filterData from "./filters.json";
+import filter1Data from "./filters1.json";
+import filter2Data from "./filters2.json";
 
 // const [filterData, setFilterData] = React.useState(filterData);
 
@@ -32,13 +33,22 @@ function FilterForm() {
                         <Button size="sm">Home</Button>
                     </Row>
                     <p />
-                    {/* <Row> */}
-                    <ButtonGroup vertical>
-                        {filterData && filterData.map(({ SLOT, FILTER }) => (
-                            <Button variant="outline-primary" size="sm">{FILTER}</Button>
-                        ))}
-                    </ButtonGroup>
-                    {/* </Row> */}
+                    <Row>
+                        <Col>
+                            <ButtonGroup vertical>
+                                {filter1Data && filter1Data.map(({ SLOT, FILTER }) => (
+                                    <Button variant="outline-primary" size="sm">{FILTER}</Button>
+                                ))}
+                            </ButtonGroup>
+                        </Col>
+                        <Col>
+                            <ButtonGroup vertical>
+                                {filter2Data && filter2Data.map(({ SLOT, FILTER }) => (
+                                    <Button variant="outline-primary" size="sm">{FILTER}</Button>
+                                ))}
+                            </ButtonGroup>
+                        </Col>
+                    </Row>
                 </Col>
                 <Col style={{ border: 2 }} className="buttoncolumn2" lg={{ span: 2, offset: 2 }}>
 

@@ -1,23 +1,23 @@
 [
     {
         "SLOT": 1,
-        "FILTER": "CLR"
+        "FILTER": "OPEN"
     },
     {
         "SLOT": 2,
-        "FILTER": "V"
+        "FILTER": "DARK"
     },
     {
         "SLOT": 3,
-        "FILTER": "R"
+        "FILTER": "OH"
     },
     {
         "SLOT": 4,
-        "FILTER": "B"
+        "FILTER": "UC"
     },
     {
         "SLOT": 5,
-        "FILTER": "U"
+        "FILTER": "BC"
     },
     {
         "SLOT": 6,
@@ -25,18 +25,18 @@
     },
     {
         "SLOT": 7,
-        "FILTER": "Slone-z"
+        "FILTER": "R"
     },
     {
         "SLOT": 8,
-        "FILTER": "Yish"
+        "FILTER": "V"
     },
     {
         "SLOT": 9,
-        "FILTER": "CN"
+        "FILTER": "B"
     },
     {
         "SLOT": 10,
-        "FILTER": "OH"
+        "FILTER": "U"
     }
 ]
