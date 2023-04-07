@@ -6,16 +6,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: 40px;
-    background-color: rgb(33, 9, 112);
-    color: rgb(33, 9, 112);
-    background-repeat: repeat;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
 }
 
 html {
-    background-color: rgb(33, 9, 112);
+    background-color: rgb(100, 100, 148);
 }

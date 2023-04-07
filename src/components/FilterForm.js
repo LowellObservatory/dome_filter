@@ -12,10 +12,7 @@ import './FilterForm.css';
 import filter1Data from "./filters1.json";
 import filter2Data from "./filters2.json";
 
-// const [filterData, setFilterData] = React.useState(filterData);
-
 function FilterForm() {
-    // const [filterData, setFilterData] = React.useState({ filterData });
 
     return (
 

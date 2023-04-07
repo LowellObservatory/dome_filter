@@ -118,7 +118,7 @@ function DomeForm() {
 
     function sendAz(event) {
         console.log("setaz(" + azVal + ")");
-        handlePublish("lorax/j1m/command/dome", 0, "setaz(" + azVal + ")");
+        handlePublish("lorax/j1m/command/dome", 0, "move(" + azVal + ")");
     }
 
     return (
@@ -154,11 +154,11 @@ function DomeForm() {
                     </Row>
                     <p />
                     <Row className="align-items-center">
-                        <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
+                        {/* <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
                             Enter Azimuth:
-                        </Form.Label>
+                        </Form.Label> */}
                         <InputGroup size="sm" className="mb-2">
-                            <InputGroup.Text className="input-label">Enter Az:</InputGroup.Text>
+                            <InputGroup.Text className="input-label">Az:</InputGroup.Text>
                             <Form.Control
                                 type="text"
                                 // onChange={sendAz.bind(this)} 
@@ -166,7 +166,7 @@ function DomeForm() {
                                 id="inlineFormInputGroup"
                                 value={azVal}
                                 onChange={(event) => { setAzVal(event.target.value) }}
-                                placeholder="0" />
+                                placeholder="0000" />
                             <Button
                                 className="btnFormSend"
                                 variant="outline-success"
@@ -179,9 +179,15 @@ function DomeForm() {
                     </Row>
                     <p />
                     <p />
-                    <Badge bg="success" size="sm">Connect Error</Badge>
-                    <Badge bg="success" size="sm">Read Error</Badge>
-                    <Badge bg="success" size="sm">Shutter Error</Badge>
+                    <Row className="c">
+                        <Badge bg="success" size="sm">Connect Error</Badge>
+                    </Row>
+                    <Row className="warnflag">
+                        <Badge bg="success" size="sm">Read Error</Badge>
+                    </Row>
+                    <Row className="warnflag">
+                        <Badge bg="success" size="sm">Shutter Error</Badge>
+                    </Row>
 
                 </Col>
                 <Col style={{ border: 2 }} className="buttoncolumn2" lg={{ span: 2, offset: 2 }}>
@@ -221,8 +227,8 @@ function DomeForm() {
                         </div>
                     </Row>
                 </Col>
-            </Row>
-        </Form>
+            </Row >
+        </Form >
 
     )
 }

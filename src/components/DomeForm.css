@@ -1,10 +1,9 @@
 .domeform {
     padding-bottom: 15px;
     padding: 10px;
-    border: 2px solid rgb(209, 85, 85);
-    background-color: rgb(207, 253, 255);
-    color: rgb(40, 21, 108);
+    background-color: rgb(255, 255, 196);
     height: 500px;
+    border-radius: 20px;
 }
 
 .domeform_text {
@@ -15,4 +14,8 @@
 .statlab {
     padding: 5px;
     border: 2px solid rgb(209, 85, 85);
+}
+
+.warnflag {
+    padding-top: 5px;
 }

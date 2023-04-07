@@ -2,6 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import MainPage from './components//MainPage';
 import './App.css';
+import './index.css';
 
 function App() {
     return (
