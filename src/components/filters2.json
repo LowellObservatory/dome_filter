@@ -26,17 +26,5 @@
     {
         "SLOT": 7,
         "FILTER": "R"
-    },
-    {
-        "SLOT": 8,
-        "FILTER": "V"
-    },
-    {
-        "SLOT": 9,
-        "FILTER": "B"
-    },
-    {
-        "SLOT": 10,
-        "FILTER": "U"
     }
 ]

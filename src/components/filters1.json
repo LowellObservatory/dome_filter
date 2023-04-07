@@ -26,17 +26,5 @@
     {
         "SLOT": 7,
         "FILTER": "CN"
-    },
-    {
-        "SLOT": 8,
-        "FILTER": "RC"
-    },
-    {
-        "SLOT": 9,
-        "FILTER": "VR"
-    },
-    {
-        "SLOT": 10,
-        "FILTER": "C2"
     }
 ]

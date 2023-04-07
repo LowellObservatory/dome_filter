@@ -63,7 +63,7 @@ function FilterForm() {
                     <p />
                     <Row className="statlab">
                         <div className="filter">
-                            Current Filter: Home/Clr
+                            Filter: open/open
                         </div>
                     </Row>
                     <p />
