@@ -73,8 +73,12 @@ function FilterForm() {
                         </div>
                     </Row>
                     <p />
-                    <Badge bg="success" size="sm">Connect Error</Badge>
-                    <Badge bg="success" size="sm">Wheel Error</Badge>
+                    <Row >
+                        <Badge bg="success" size="sm">Connect Error</Badge>
+                    </Row>
+                    <Row className="warnflag">
+                        <Badge bg="success" size="sm">Wheel Error</Badge>
+                    </Row>
                 </Col>
             </Row>
         </Form >

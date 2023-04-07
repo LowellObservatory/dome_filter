@@ -179,7 +179,7 @@ function DomeForm() {
                     </Row>
                     <p />
                     <p />
-                    <Row className="c">
+                    <Row >
                         <Badge bg="success" size="sm">Connect Error</Badge>
                     </Row>
                     <Row className="warnflag">
