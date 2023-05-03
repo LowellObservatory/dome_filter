@@ -1,0 +1,25 @@
+{
+    "Agents": {
+        "dome": {
+            "Broadcast_Topic": "lorax/j1m/dome/broadcast",
+            "Keys": {
+                "0": "*",
+                "1": "connected",
+                "2": "azimuth",
+                "3": "moving",
+                "4": "closed"
+            }
+        },
+        "filterwheel": {
+            "Broadcast_Topic": "lorax/j1m/filterwheel/broadcast",
+            "Keys": {
+                "0": "*",
+                "1": "wheel1",
+                "2": "wheel2",
+                "3": "filter",
+                "4": "home"
+            }
+        }
+    },
+    "Broker_Host": "tanagra:61614"
+}

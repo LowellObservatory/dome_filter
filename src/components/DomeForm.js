@@ -12,6 +12,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './DomeForm.css';
 import useBrokerMQTT from "./useBrokerMQTT";
+import configData from "../config.json";
 
 
 function DomeForm() {
