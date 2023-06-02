@@ -7,7 +7,7 @@ function useBrokerMQTT() {
     const [message, setMessage] = useState(null);
 
     function handleConnect() {
-        const url = "ws://tanagra.lowell.edu:61614/mqtt";
+        const url = "ws://redqueen.lowell.edu:61614/mqtt";
         // console.log(url);
         const options = {
             keepalive: 30,

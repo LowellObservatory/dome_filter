@@ -84,6 +84,9 @@ function DomeForm() {
         }
     });
 
+    function doHome() {
+        handlePublish("lorax/j1m/command/dome", 0, "home");
+    }
     function doOpen() {
         handlePublish("lorax/j1m/command/dome", 0, "open_shutter");
     }
@@ -92,7 +95,7 @@ function DomeForm() {
     }
 
     function doFollow() {
-        handlePublish("lorax/j1m/command/dome", 0, "track_mount");
+        handlePublish("lorax/j1m/command/dome", 0, "start_track_mount");
     }
 
     function doUnfollow() {
@@ -135,7 +138,7 @@ function DomeForm() {
                     </Row>
                     <p />
                     <Row>
-                        <Button size="sm">Home</Button>
+                        <Button onClick={doHome} size="sm">Home</Button>
                     </Row>
                     <p />
                     <Row>

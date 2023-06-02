@@ -29,9 +29,9 @@ function MainPage() {
                 <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
                     <DomeForm />
                 </Col>
-                <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
+                {/* <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
                     <FilterForm />
-                </Col>
+                </Col> */}
             </Row>
         </Container >
     )
