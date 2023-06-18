@@ -48,6 +48,7 @@ function DomeForm() {
             var azimuth = message.getElementsByTagName("azimuth");
             var shutter_open = message.getElementsByTagName("shutter_open");
             var track_mount = message.getElementsByTagName("track_mount");
+            var dome_busy = message.getElementsByTagName("dome_busy");
             // console.log(connected[0].childNodes[0].nodeValue)
 
             if (connected[0].childNodes[0].nodeValue === "True") {
@@ -74,6 +75,16 @@ function DomeForm() {
                 document.getElementById("follow").innerHTML = "Following: false";
             }
 
+            if (dome_busy[0].childNodes[0].nodeValue === "True") {
+                // console.log("setting open");
+                document.getElementById("busy").innerHTML = "Dome Busy: True";
+                document.getElementById("busy").style.backgroundColor = "red";
+            } else {
+                // console.log("setting closed");
+                document.getElementById("busy").innerHTML = "Dome Busy: False";
+                document.getElementById("busy").style.backgroundColor = "lightgreen";
+            }
+
             document.getElementById("azimuth").innerHTML = "azimuth: " + azimuth[0].childNodes[0].nodeValue;
             // outtext = "timestamput: " + timeut[0].childNodes[0].nodeValue;
             // outtext = outtext + "\nconnected: " + connected[0].childNodes[0].nodeValue;
@@ -85,21 +96,25 @@ function DomeForm() {
     });
 
     function doHome() {
-        handlePublish("lorax/j1m/command/dome", 0, "home");
+        handlePublish("lorax/j1m/dto/dome", 0, "home");
     }
     function doOpen() {
-        handlePublish("lorax/j1m/command/dome", 0, "open_shutter");
+        handlePublish("lorax/j1m/dto/dome", 0, "open_shutter");
     }
     function doClose() {
-        handlePublish("lorax/j1m/command/dome", 0, "close_shutter");
+        handlePublish("lorax/j1m/dto/dome", 0, "close_shutter");
     }
 
     function doFollow() {
-        handlePublish("lorax/j1m/command/dome", 0, "start_track_mount");
+        handlePublish("lorax/j1m/dto/dome", 0, "start_track_mount");
     }
 
     function doUnfollow() {
-        handlePublish("lorax/j1m/command/dome", 0, "stop_tracking");
+        handlePublish("lorax/j1m/dto/dome", 0, "stop_tracking");
+    }
+
+    function doStop() {
+        handlePublish("lorax/j1m/dto/dome", 0, "stop");
     }
 
     function toggleConnected(e) {
@@ -107,14 +122,14 @@ function DomeForm() {
             setConnected(false);
             // handleUnsub("lorax/j1m/dome/broadcast", 0);
             // handlePublish("testDome", 0, "<value>disconnected</value>");
-            handlePublish("lorax/j1m/command/dome", 0, "disconnect");
+            handlePublish("lorax/j1m/dto/dome", 0, "disconnect");
             // document.getElementById("connection").innerHTML = "State: Disconnected";
 
         } else {
             setConnected(true);
             // handleSubscribe("lorax/j1m/dome/broadcast", 0);
             // handlePublish("testDome", 0, "<value>connected</value>");
-            handlePublish("lorax/j1m/command/dome", 0, "init");
+            handlePublish("lorax/j1m/dto/dome", 0, "init");
             // document.getElementById("connection").innerHTML = "State: Connected";
         }
         // console.log(Connected);
@@ -122,7 +137,7 @@ function DomeForm() {
 
     function sendAz(event) {
         console.log("setaz(" + azVal + ")");
-        handlePublish("lorax/j1m/command/dome", 0, "move(" + azVal + ")");
+        handlePublish("lorax/j1m/dto/dome", 0, "move(" + azVal + ")");
     }
 
     return (
@@ -156,6 +171,10 @@ function DomeForm() {
                     <Row>
                         <Button onClick={doUnfollow} size="sm">Unfollow</Button>
                     </Row>
+                     <p />
+                    <Row>
+                        <Button onClick={doStop} size="sm">Stop</Button>
+                    </Row>
                     <p />
                     <Row className="align-items-center">
                         {/* <Form.Label htmlFor="inlineFormInputGroup" visuallyHidden>
@@ -183,9 +202,7 @@ function DomeForm() {
                     </Row>
                     <p />
                     <p />
-                    <Row >
-                        <Badge bg="success" size="sm">Connect Error</Badge>
-                    </Row>
+                    
                     <Row className="warnflag">
                         <Badge bg="success" size="sm">Read Error</Badge>
                     </Row>
@@ -228,6 +245,12 @@ function DomeForm() {
                     <Row className="statlab">
                         <div className="follow" id="follow">
                             Following: false
+                        </div>
+                    </Row>
+                    <p />
+                    <Row className="statlab">
+                        <div className="busy" id="busy">
+                            Dome Busy: false
                         </div>
                     </Row>
                 </Col>
