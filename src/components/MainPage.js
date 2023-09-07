@@ -5,6 +5,7 @@ import ICNavbar from "./ICNavbar";
 // import WeatherForm from "./WeatherForm";
 // import TimeForm from "./TimeForm";
 import DomeForm from "./DomeForm";
+import ThreeD from "./3D";
 import FilterForm from "./FilterForm";
 import {
     Container,
@@ -32,6 +33,11 @@ function MainPage() {
                 {/* <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
                     <FilterForm />
                 </Col> */}
+            </Row>
+            <Row style={{ marginLeft: 0, marginRight: 0 }} >
+                {/* <Col md="auto"><ThreeD azimuth={azimuth}
+                    elevation={elevation} domeazimuth={domeazimuth} /></Col> */}
+                {/* <Col md="auto"><ThreeD /></Col> */}
             </Row>
         </Container >
     )

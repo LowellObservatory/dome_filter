@@ -18,6 +18,7 @@ import configData from "../config.json";
 function DomeForm() {
 
     const [azVal, setAzVal] = useState(0);
+    const [nudgeVal, setNudgeVal] = useState(0);
     const [Connected, setConnected] = useState(false);
     const {
         client,
@@ -47,6 +48,7 @@ function DomeForm() {
             var connected = message.getElementsByTagName("connected");
             var azimuth = message.getElementsByTagName("azimuth");
             var shutter_open = message.getElementsByTagName("shutter_open");
+            var is_home = message.getElementsByTagName("is_home");
             var track_mount = message.getElementsByTagName("track_mount");
             var dome_busy = message.getElementsByTagName("dome_busy");
             // console.log(connected[0].childNodes[0].nodeValue)
@@ -65,6 +67,14 @@ function DomeForm() {
             } else {
                 // console.log("setting closed");
                 document.getElementById("shutter").innerHTML = "Shutter: closed";
+            }
+
+            if (is_home[0].childNodes[0].nodeValue === "True") {
+                // console.log("setting open");
+                document.getElementById("home").innerHTML = "Home: True";
+            } else {
+                // console.log("setting closed");
+                document.getElementById("home").innerHTML = "Home: False";
             }
 
             if (track_mount[0].childNodes[0].nodeValue === "True") {
@@ -140,6 +150,11 @@ function DomeForm() {
         handlePublish("lorax/j1m/dto/dome", 0, "move(" + azVal + ")");
     }
 
+    function sendNudge(event) {
+        console.log("nudge(" + nudgeVal + ")");
+        handlePublish("lorax/j1m/dto/dome", 0, "nudge(" + nudgeVal + ")");
+    }
+
     return (
 
         <Form className="domeform" onSubmit={sendAz}>
@@ -200,15 +215,35 @@ function DomeForm() {
 
                         </InputGroup>
                     </Row>
+                    <Row className="align-items-center">
+                        <InputGroup size="sm" className="mb-2">
+                            <InputGroup.Text className="input-label">Nudge:</InputGroup.Text>
+                            <Form.Control
+                                type="text"
+                                size="sm"
+                                id="inlineFormInputGroup"
+                                value={nudgeVal}
+                                onChange={(event) => { setNudgeVal(event.target.value) }}
+                                placeholder="0" />
+                            <Button
+                                className="btnFormSend"
+                                variant="outline-success"
+                                onClick={sendNudge}
+                            >
+                                Send
+                            </Button>
+
+                        </InputGroup>
+                    </Row>
                     <p />
                     <p />
                     
-                    <Row className="warnflag">
+                    {/* <Row className="warnflag">
                         <Badge bg="success" size="sm">Read Error</Badge>
                     </Row>
                     <Row className="warnflag">
                         <Badge bg="success" size="sm">Shutter Error</Badge>
-                    </Row>
+                    </Row> */}
 
                 </Col>
                 <Col style={{ border: 2 }} className="buttoncolumn2" lg={{ span: 2, offset: 2 }}>
@@ -219,7 +254,7 @@ function DomeForm() {
                     </Row>
                     <p />
                     <Row className="statlab">
-                        <div className="home">
+                        <div className="home" id="home">
                             Home: Unknown
                         </div>
                     </Row>

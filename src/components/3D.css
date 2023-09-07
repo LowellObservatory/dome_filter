@@ -1,0 +1,8 @@
+#threedcdiv {
+    width: 400px;
+    height: 400px;
+    position: left;
+    float: left;
+    left: 51%;
+    outline: 1px solid rgb(148, 148, 91);
+}
