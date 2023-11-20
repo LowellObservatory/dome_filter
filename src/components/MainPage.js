@@ -28,7 +28,7 @@ function MainPage() {
             <p />
             <Row style={{ marginLeft: 0, marginRight: 0 }} >
                 <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
-                    <DomeForm />
+                    <DomeForm className="domeForm"/>
                 </Col>
                 {/* <Col style={{ paddingLeft: 10, paddingRight: 20 }}>
                     <FilterForm />

@@ -164,31 +164,31 @@ function DomeForm() {
             <Row className="align-items-top">
                 <Col className="buttoncolumn" lg={{ span: 2, offset: 1 }}>
                     <Row>
-                        <Button onClick={toggleConnected} size="sm">Connect/Disconnect</Button>
+                        <Button onClick={toggleConnected} className="custom-btn" size="sm">Connect/Disconnect</Button>
                     </Row>
                     <p />
                     <Row>
-                        <Button onClick={doHome} size="sm">Home</Button>
+                        <Button onClick={doHome} className="custom-btn" size="sm">Home</Button>
                     </Row>
                     <p />
                     <Row>
-                        <Button onClick={doOpen} size="sm">Open</Button>
+                        <Button onClick={doOpen} className="custom-btn" size="sm">Open</Button>
                     </Row>
                     <p />
                     <Row>
-                        <Button onClick={doClose} size="sm">Close</Button>
+                        <Button onClick={doClose} className="custom-btn" size="sm">Close</Button>
                     </Row>
                     <p />
                     <Row>
-                        <Button onClick={doFollow} size="sm">Follow</Button>
+                        <Button onClick={doFollow} className="custom-btn" size="sm">Follow</Button>
                     </Row>
                     <p />
                     <Row>
-                        <Button onClick={doUnfollow} size="sm">Unfollow</Button>
+                        <Button onClick={doUnfollow} className="custom-btn" size="sm">Unfollow</Button>
                     </Row>
                      <p />
                     <Row>
-                        <Button onClick={doStop} size="sm">Stop</Button>
+                        <Button onClick={doStop} className="custom-btn" size="sm">Stop</Button>
                     </Row>
                     <p />
                     <Row className="align-items-center">

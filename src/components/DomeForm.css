@@ -1,7 +1,7 @@
 .domeform {
     padding-bottom: 15px;
     padding: 10px;
-    background-color: rgb(255, 255, 196);
+    background-color: #ffa600;
     height: 500px;
     border-radius: 20px;
 }
@@ -13,9 +13,21 @@
 
 .statlab {
     padding: 5px;
+    background-color: #ffcb6b;
+    border-radius: 8px;
     border: 2px solid rgb(209, 85, 85);
 }
 
 .warnflag {
     padding-top: 5px;
+}
+
+
+.custom-btn {
+    background: #189405;
+    /* color: red; */
+    border: 2px solid rgb(65, 46, 236);
+    border-radius: 8px;
+    /* padding: 5px 10px; */
+    /* text-transform: uppercase; */
 }
